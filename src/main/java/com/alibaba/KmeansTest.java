@@ -17,7 +17,15 @@ public class KmeansTest {
         da[5] = new double[]{26,23,54};
         Kmeans kmeans = new Kmeans(da);
         KmeansParam param = new KmeansParam();
+//        System.out.println(param.toString());
+//        System.out.println(kmeans.toString());
         kmeans.doKmeans(3,param);
+/*        for (int i = 0; i <da.length ; i++) {
+            for (int j = 0; j <da[i].length ; j++) {
+                System.out.println("da["+i+"]["+j+"]="+da[i][j]);
+            }
+        }*/
+
     }
     public void test() {
     }

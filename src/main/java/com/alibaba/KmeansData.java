@@ -1,5 +1,7 @@
 package com.alibaba;
 
+import java.util.Arrays;
+
 /**
  * @program: kmeans
  * @description: none
@@ -19,5 +21,18 @@ public class KmeansData {
         this.data = data;
         this.length = length;
         this.dim = dim;
+    }
+
+    @Override
+    public String toString() {
+        return "KmeansData{" +
+                "data=" + Arrays.toString(data) +
+                ", length=" + length +
+                ", dim=" + dim +
+                ", labels=" + Arrays.toString(labels) +
+                ", centers=" + Arrays.toString(centers) +
+                ", centerCounts=" + Arrays.toString(centerCounts) +
+                ", originalCenters=" + Arrays.toString(originalCenters) +
+                '}';
     }
 }

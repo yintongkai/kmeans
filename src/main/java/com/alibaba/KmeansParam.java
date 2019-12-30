@@ -17,4 +17,15 @@ public class KmeansParam {
     public int initCenterMethod = CENTER_RANDOM;//初始化聚类中心方式
     public boolean isDisplay = true;//是否直接显示结果
     public double min_euclideanDistance = MIN_EUCLIDEANDISTANCE;
+
+    @Override
+    public String toString() {
+        return "KmeansParam{" +
+                "criteria=" + criteria +
+                ", attempts=" + attempts +
+                ", initCenterMethod=" + initCenterMethod +
+                ", isDisplay=" + isDisplay +
+                ", min_euclideanDistance=" + min_euclideanDistance +
+                '}';
+    }
 }

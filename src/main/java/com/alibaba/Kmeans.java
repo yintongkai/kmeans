@@ -14,6 +14,13 @@ public class Kmeans {
     private static DecimalFormat decimalFormat = new DecimalFormat("#####.00");//对数据格式化处理
     public KmeansData data = null;
 
+    @Override
+    public String toString() {
+        return "Kmeans{" +
+                "data=" + data +
+                '}';
+    }
+
     public Kmeans(double[][] da) {
         data = new KmeansData(da, da.length, da[0].length);
     }
@@ -102,6 +109,7 @@ public class Kmeans {
             }
             nums[0] = min;
             nums[1] = max;
+            //System.out.println("min:"+min+" max:"+max);
             minAndMax.put(i, nums);
         }
         //更新矩阵的值
@@ -111,6 +119,7 @@ public class Kmeans {
                 double maxValue = minAndMax.get(j)[1];
                 data.data[i][j] = (data.data[i][j] - minValue) / (maxValue - minValue);
                 data.data[i][j] = Double.valueOf(decimalFormat.format(data.data[i][j]));
+                //System.out.println("data["+i+"]["+j +"]="+data.data[i][j]);
             }
         }
     }
