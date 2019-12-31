@@ -11,15 +11,15 @@ package com.alibaba.optimization;
 public class KmeansTest {
     public static void main(String[] args) throws Exception {
         Kmeans kmeans = new Kmeans();
-        String path = "F:\\kmeans.txt";
+        String path = "E:\\demo\\kmeans\\src\\main\\resources\\Kmeans.txt";
         ClusterModel model = kmeans.train(path);
         model.centers();
-        System.out.println("中国属于第" + (model.predict("中国")+1)+"类");
+        System.out.println("中国属于第" + (model.predict("中国") + 1) + "类");
         model.outputAllResult();
         System.out.println("-------------------------------------------------------------------------------------");
-        model = kmeans.train(path,100000);
+        model = kmeans.train(path, 100000);
         model.centers();
-        System.out.println("中国属于第" + (model.predict("中国")+1)+"类");
+        System.out.println("中国属于第" + (model.predict("中国") + 1) + "类");
         model.outputAllResult();
     }
 }
