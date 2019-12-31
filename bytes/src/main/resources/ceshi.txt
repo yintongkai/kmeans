@@ -1,0 +1,42 @@
+请输入测试元组 
+youth high no fair 
+The class is: no 
+请输入测试元组 
+youth high no excellent 
+The class is: no 
+请输入测试元组 
+middle_aged high no fair 
+The class is: yes 
+请输入测试元组 
+senior medium no fair 
+The class is: yes 
+请输入测试元组 
+senior low yes fair 
+The class is: yes 
+请输入测试元组 
+senior low yes excellent 
+The class is: yes 
+请输入测试元组 
+middle_aged low yes excellent 
+The class is: yes 
+请输入测试元组 
+youth medium no fair 
+The class is: no 
+请输入测试元组 
+youth low yes fair 
+The class is: yes 
+请输入测试元组 
+senior medium yes fair 
+The class is: yes 
+请输入测试元组 
+youth medium yes excellent 
+The class is: yes 
+请输入测试元组 
+middle_aged medium no excellent 
+The class is: yes 
+请输入测试元组 
+middle_aged high yes fair 
+The class is: yes 
+请输入测试元组 
+senior medium no excellent 
+The class is: no 
