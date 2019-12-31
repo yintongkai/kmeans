@@ -62,14 +62,18 @@ public class Kmeans {
         int[] centerCounts = kmeansData.centerCounts;
         for (int i = 0; i <kmeansData.dim ; i++) {
             for (int j = 0; j <kmeansData.length ; j++) {
+                //System.out.println("centers[labels["+j+"]]["+i+"]"+centers[labels[j]][i]);
                 centers[labels[j]][i] += kmeansData.data[j][i];
+                //System.out.println("centers[labels["+j+"]]["+i+"]"+centers[labels[j]][i]);
             }
         }
 
         for (int i = 0; i < k; i++) {
             for (int j = 0; j < kmeansData.dim; j++) {
+                //System.out.println("centers["+i+"]"+centerCounts[i]);
                 centers[i][j] = centers[i][j] / centerCounts[i];
                 centers[i][j] = Double.valueOf(decimalFormat.format(centers[i][j]));
+                //System.out.println("centers["+i+"]"+"["+j+"]"+centers[i][j]);
             }
         }
     }
@@ -152,15 +156,20 @@ public class Kmeans {
             List<Integer> seeds = new LinkedList<Integer>();
             while (seeds.size() < k) {
                 int randomInt = rn.nextInt(data.length);
+                //System.out.println("randomInt:"+randomInt);
                 if (!seeds.contains(randomInt)) {
                     seeds.add(randomInt);
                 }
             }
+            //System.out.println(seeds.toString());
             Collections.sort(seeds);
+            //System.out.println(seeds.toString());
             for (int i = 0; i < k; i++) {
                 int m = seeds.remove(0);
+                //System.out.println("选取的值"+m);
                 for (int j = 0; j < data.dim; j++) {
                     centers[i][j] = data.data[m][j];
+                    //System.out.println("centers[i][j]"+centers[i][j]);
                 }
             }
         } else { // 选取前k个点位初始聚类中心
@@ -180,6 +189,7 @@ public class Kmeans {
 
         // 第一轮迭代
         for (int i = 0; i < data.length; i++) {
+            //System.out.println(Arrays.toString(centers[0]));
             double minDist = dist(data.data[i], centers[0], data.dim);
             int label = 0;
             for (int j = 1; j < k; j++) {
@@ -203,7 +213,8 @@ public class Kmeans {
         boolean[] flags = new boolean[k]; // 标记哪些中心被修改过
 
         // 迭代
-        iterate: while (attempts < maxAttempts) { // 迭代次数不超过最大值，最大中心改变量不超过阈值
+        iterate:
+        while (attempts < maxAttempts) { // 迭代次数不超过最大值，最大中心改变量不超过阈值
             for (int i = 0; i < k; i++) { // 初始化中心点“是否被修改过”标记
                 flags[i] = false;
             }
@@ -252,13 +263,16 @@ public class Kmeans {
         // 输出信息，把属于同一类的数据连续存放
         KmeansResult rvInfo = new KmeansResult();
         int perm[] = new int[data.length];
+        //System.out.println("perm:"+Arrays.toString(perm));
         rvInfo.perm = perm;
         int start[] = new int[k];
         rvInfo.start = start;
         groupClass(perm,start,k,data);
 
         rvInfo.attempts = attempts;
+        //System.out.println("attempts="+attempts);
         rvInfo.criteriaBreakCondition = criteriaBreakCondition;
+        //System.out.println("criteriaBreakCondition"+criteriaBreakCondition);
         if (param.isDisplay) {
             System.out.println("最初的聚类中心：");
             for(int i = 0;i < data.originalCenters.length;i++){
@@ -295,10 +309,12 @@ public class Kmeans {
         start[0] = 0;
         for(int i = 1;i < k;i++){
             start[i] = start[i-1] + data.centerCounts[i-1];
+            //System.out.println("start["+i+"]:"+start[i]);
         }
 
         for(int i = 0;i < data.length;i++){
             perm[start[data.labels[i]]++] = i;
+            //System.out.println(Arrays.toString(perm));
         }
 
         start[0] = 0;

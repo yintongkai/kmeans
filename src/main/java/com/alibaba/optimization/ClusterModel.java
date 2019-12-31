@@ -25,7 +25,7 @@ public class ClusterModel {
         System.out.println("聚类中心");
         for (int i = 0; i < originalCenters.length; i++) {
             for (int j = 0; j < originalCenters[0].length; j++) {
-                System.out.println(originalCenters[i][j]+"  ");
+                System.out.print(originalCenters[i][j]+"  ");
             }
             System.out.print("\t"+"第" + (i+1)+"类：" + "\t" + "样本个数：" + centerCounts[i]);
             System.out.println();
@@ -47,9 +47,9 @@ public class ClusterModel {
             System.out.println("第"+(index+1)+"类成员：");
             for (int j = start[i]; j < originalCount; j++) {
                 for (double num: data.data[perm[j]]) {
-                    System.out.println(num+" ");
+                    System.out.print(num+" ");
                 }
-                System.out.println(":"+iden0.get(perm[j]));
+                System.out.print(":"+iden0.get(perm[j]));
                 System.out.println();
             }
         }

@@ -68,6 +68,7 @@ public class Kmeans {
 
         for (int j = 0; j < contents.size(); j++) {
             strs = contents.get(j).split(":");
+            //System.out.println(Arrays.toString(strs));
             identifier.put(strs[1], j);
             iden0.put(j, strs[1]);
             String[] feature = strs[0].split(" ");
